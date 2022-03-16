@@ -3,7 +3,7 @@
   <dbtype>SQL Server</dbtype>
   <connstr>server=192.168.0.135;uid=sa;pwd=Famous901;database=LaborSys;</connstr>
   <genway>0</genway>
-  <namespace>IJLYNIVFHP.Test</namespace>
+  <namespace>IJLYNIVFHP</namespace>
   <front>test_</front>
   <output>d:\IJLYNIVFHPcode\</output>
 </Config>

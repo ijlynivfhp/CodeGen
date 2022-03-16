@@ -61,7 +61,7 @@
                     <TextBlock Grid.Row="0" Grid.Column="0" Margin="5">命名空间：</TextBlock>
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="5">表前缀：</TextBlock>
                     <TextBlock Grid.Row="2" Grid.Column="0" Margin="5">代码生成目录：</TextBlock>
-                    <TextBox Name="txtmingming" Text="IJLYNIVFHP.Test" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5"></TextBox>
+                    <TextBox Name="txtmingming" Text="IJLYNIVFHP" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5"></TextBox>
                     <TextBox Name="txtqianzui" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Margin="5" Padding="5"></TextBox>
                     <TextBox Name="txtmulu" Text="C:\IJLYNIVFHPgen\" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="5" Padding="5"></TextBox>
                 </Grid>
