@@ -103,7 +103,7 @@ namespace IJLYNIVFHP.CodeGen.WPF
                 {
                     case "SQL Server":
 
-                        txtyulan.Text = @"示例连接字符串: server=.;uid=sa;pwd=123456;database=Test;pooling=true;min pool size=5;max pool size=100;";
+                        txtyulan.Text = @"示例连接字符串: server=I5225202210;uid=sa;pwd=123456;database=Test;pooling=true;min pool size=5;max pool size=100;";
                         break;
                     case "MySQL":
 
@@ -336,7 +336,7 @@ namespace IJLYNIVFHP.CodeGen.WPF
             if (radmicro.IsChecked.Value)
             {
                 //基于微软企业库生成DAL
-                txtyulan.Text = GenDAL_MSSQL.GenAllCode(ns, tabname, classname, connstr);
+                txtyulan.Text = GenDAL_MSSQL_One.GenAllCode(ns, tabname, classname, connstr);
             }
             else if (radIJLYNIVFHP.IsChecked.Value)
             {
@@ -577,7 +577,7 @@ namespace IJLYNIVFHP.CodeGen.WPF
                     if (radmicro.IsChecked.Value)
                     {
                         //基于微软企业库
-                        sw.Write(GenDAL_MSSQL.GenAllCode(ns, tabname, classname, connstr));
+                        sw.Write(GenDAL_MSSQL_One.GenAllCode(ns, tabname, classname, connstr));
                     }
                     else if (radIJLYNIVFHP.IsChecked.Value)
                     {
@@ -983,7 +983,7 @@ namespace IJLYNIVFHP.CodeGen.WPF
                 {
                     Model.OneTable onetable = Tools.GetOneTable(dbtype, connstr, tablename);
 
-                    string files_str = String.Join(",", onetable.fields.Select(a => a.name).ToArray()); //如id,name,age...最后是没有,的
+                    string files_str = String.Join(",", onetable.fields.Where(o=>o.isprimarykey==false).Select(a => a.name).ToArray()); //如id,name,age...最后是没有,的
 
                     List<string> list_value = new List<string>();
                     #region 拼接value
@@ -1071,7 +1071,11 @@ namespace IJLYNIVFHP.CodeGen.WPF
             foreach (FileInfo file in files)
             {
                 string temppath = System.IO.Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, false);
+                if(!File.Exists(temppath))
+                {
+                    file.CopyTo(temppath, false);
+                }
+                
             }
 
             // If copying subdirectories, copy them and their contents to new location.

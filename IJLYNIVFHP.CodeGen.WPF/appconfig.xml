@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Config>
   <dbtype>SQL Server</dbtype>
-  <connstr>server=.;uid=sa;pwd=123456;database=IJLYNIVFHPtest;</connstr>
+  <connstr>server=I5225202210;uid=sa;pwd=123456;database=Test;</connstr>
   <genway>0</genway>
   <namespace>IJLYNIVFHP.Test</namespace>
   <front>test_</front>

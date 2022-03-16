@@ -440,8 +440,8 @@ namespace IJLYNIVFHP.CodeGen.BLL
             string tmp = "id";
             SqlConnection conn = new SqlConnection(connstr);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("sp_pkeys", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("select T.字段名 from (SELECT a.[name] as '字段名', a.colstat as '是不自增' FROM syscolumns  a  left   join    systypes    b   on      a.xusertype = b.xusertype left    join    systypes    c   on      a.xtype = c.xusertype inner   join   sysobjects  d   on      a.id = d.id and   d.xtype = 'U' left join syscomments sm on a.cdefault = sm.id left join sys.extended_properties e on a.id = e.major_id and a.colid = e.minor_id and e.name = 'MS_Description' where d.name = @table_name)T where T.是不自增 = 1", conn);
+            //cmd.CommandType = CommandType.StoredProcedure;
             SqlParameter p = new SqlParameter("@table_name", tabname);
             cmd.Parameters.Add(p);
             DataTable dt = new DataTable();
@@ -449,7 +449,7 @@ namespace IJLYNIVFHP.CodeGen.BLL
             conn.Close();
             if (dt.Rows.Count > 0)
             {
-                tmp = dt.Rows[0]["COLUMN_NAME"].ToString();
+                tmp = dt.Rows[0]["字段名"].ToString();
             }
             return tmp;
         }
@@ -580,7 +580,9 @@ namespace IJLYNIVFHP.CodeGen.BLL
                     string pkey = Tools.GetPKey_MSSQL(tablename, connstr);
                     SqlConnection conn = new SqlConnection(connstr);
                     conn.Open();
-                    string sql = $"select top 10 * from [{tablename}] order by {pkey} desc ";
+                    //2018年3月24日 15:21:31（ijlynivfhp）
+                    //string sql = $"select top 10 * from [{tablename}] order by {pkey} desc ";
+                    string sql = $"select top 10 * from [{tablename}] ";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     SqlDataReader sdr = cmd.ExecuteReader();
                     dt = new DataTable();

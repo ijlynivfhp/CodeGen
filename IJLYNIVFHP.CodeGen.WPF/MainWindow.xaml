@@ -111,6 +111,6 @@
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-        <TextBox Grid.Column="2" TextWrapping="Wrap" Name="txtyulan" FontSize="16" Text="示例连接字符串: server=.;uid=sa;pwd=123456;database=olabor;pooling=true;min pool size=5;max pool size=100;"></TextBox> 
+        <TextBox Grid.Column="2" TextWrapping="Wrap" Name="txtyulan" FontSize="16" Text="示例连接字符串: server=I5225202210;uid=sa;pwd=123456;database=Test;pooling=true;min pool size=5;max pool size=100;"></TextBox> 
     </Grid>
 </Window>

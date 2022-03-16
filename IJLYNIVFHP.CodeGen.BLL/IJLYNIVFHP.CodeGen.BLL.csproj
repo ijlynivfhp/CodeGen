@@ -48,13 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBDocGen.cs" />
-    <Compile Include="GenBLL_MSSQL_niunan.cs" />
+    <Compile Include="GenBLL_MSSQL.cs" />
     <Compile Include="GenCode_MVC.cs" />
-    <Compile Include="GenDAL_Access_niunan.cs" />
-    <Compile Include="GenDAL_MSSQL.cs" />
-    <Compile Include="GenDAL_MSSQL_niunan.cs" />
-    <Compile Include="GenDAL_MySQL_niunan.cs" />
-    <Compile Include="GenDAL_SQLite_niunan.cs" />
+    <Compile Include="GenDAL_Access.cs" />
+    <Compile Include="GenDAL_MSSQL_One.cs" />
+    <Compile Include="GenDAL_MSSQL_Two.cs" />
+    <Compile Include="GenDAL_MySQL.cs" />
+    <Compile Include="GenDAL_SQLite.cs" />
     <Compile Include="GenList_MSSQL.cs" />
     <Compile Include="GenModel_Access.cs" />
     <Compile Include="GenModel_MSSQL.cs" />

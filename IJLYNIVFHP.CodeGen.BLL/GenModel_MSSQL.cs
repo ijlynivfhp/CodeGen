@@ -45,21 +45,33 @@ namespace IJLYNIVFHP.CodeGen.BLL
             sql += "e.name='MS_Description' and e.class_desc='OBJECT_OR_COLUMN' where d.name='" + tabname + "' ";
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader sdr = cmd.ExecuteReader();
+            //2018年3月24日 14:53:09 (ijlynivfhp)
+            //while (sdr.Read())
+            //{
+            //    //如果字段名是class,则输出public的时候为__class
+            //    string tmp = sdr["字段名"].ToString();
+            //    tmp = tmp == "class" ? "__class" : tmp; 
+            //    sb.Append("		private " + Tools.DbTypeToCSharpType(sdr["类型"].ToString(),sdr["是否为空"].ToString()) + " _" + sdr["字段名"] + " " + Tools.DbDefaultToCSharp(sdr["默认值"].ToString(), sdr["类型"].ToString()) + ";\r\n");
+            //    sb.Append("		/// <summary>" + sdr["字段说明"] + "\r\n");
+            //    sb.Append("		/// \r\n");
+            //    sb.Append("		/// </summary>\r\n");
+            //    sb.Append("		public " + Tools.DbTypeToCSharpType(sdr["类型"].ToString(), sdr["是否为空"].ToString()) + " " + tmp + "\r\n");
+            //    sb.Append("		{\r\n");
+            //    sb.Append("			set{ _" + sdr["字段名"] + "=value;}\r\n");
+            //    sb.Append("			get{return _" + sdr["字段名"] + ";}\r\n");
+            //    sb.Append("		}\r\n");
+            //}
 
+            //2018年3月24日 14:53:09 (ijlynivfhp)
             while (sdr.Read())
             {
                 //如果字段名是class,则输出public的时候为__class
                 string tmp = sdr["字段名"].ToString();
-                tmp = tmp == "class" ? "__class" : tmp; 
-                sb.Append("		private " + Tools.DbTypeToCSharpType(sdr["类型"].ToString(),sdr["是否为空"].ToString()) + " _" + sdr["字段名"] + " " + Tools.DbDefaultToCSharp(sdr["默认值"].ToString(), sdr["类型"].ToString()) + ";\r\n");
-                sb.Append("		/// <summary>" + sdr["字段说明"] + "\r\n");
+                tmp = tmp == "class" ? "__class" : tmp;
+                sb.Append("		/// <summary>" + (string.IsNullOrWhiteSpace(sdr["字段说明"].ToString())? "": sdr["字段说明"].ToString().Replace("\n", "").Replace("\r", "")) + "\r\n");
                 sb.Append("		/// \r\n");
                 sb.Append("		/// </summary>\r\n");
-                sb.Append("		public " + Tools.DbTypeToCSharpType(sdr["类型"].ToString(), sdr["是否为空"].ToString()) + " " + tmp + "\r\n");
-                sb.Append("		{\r\n");
-                sb.Append("			set{ _" + sdr["字段名"] + "=value;}\r\n");
-                sb.Append("			get{return _" + sdr["字段名"] + ";}\r\n");
-                sb.Append("		}\r\n");
+                sb.Append("		public " + Tools.DbTypeToCSharpType(sdr["类型"].ToString(), sdr["是否为空"].ToString()) + " " + tmp + " { get; set; }\r\n");
             }
 
             conn.Close();

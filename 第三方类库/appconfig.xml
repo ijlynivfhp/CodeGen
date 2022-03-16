@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Config>
   <dbtype>SQL Server</dbtype>
-  <connstr>server=.;uid=sa;pwd=123456;database=Test;</connstr>
-  <genway>0</genway>
-  <namespace>IJLYNIVFHP.Test</namespace>
-  <front>test_</front>
+  <connstr>server=I5225202210;uid=sa;pwd=123456;database=Test;pooling=true;min pool size=5;max pool size=100;</connstr>
+  <genway>1</genway>
+  <namespace>Model</namespace>
+  <front></front>
   <output>d:\IJLYNIVFHPcode\</output>
 </Config>

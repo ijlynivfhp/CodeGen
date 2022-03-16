@@ -363,7 +363,7 @@ namespace IJLYNIVFHP.CodeGen
             if (rad0.Checked)
             {
                 //基于微软企业库生成DAL
-                txtyl.Text = GenDAL_MSSQL.GenAllCode(ns, tabname, classname, connstr);
+                txtyl.Text = GenDAL_MSSQL_One.GenAllCode(ns, tabname, classname, connstr);
             }
             else
             {
@@ -495,7 +495,7 @@ namespace IJLYNIVFHP.CodeGen
                 if (rad0.Checked)
                 {
                     //基于微软企业库
-                    sw.Write(GenDAL_MSSQL.GenAllCode(ns, tabname, classname, connstr));
+                    sw.Write(GenDAL_MSSQL_One.GenAllCode(ns, tabname, classname, connstr));
                 }
                 else
                 {
@@ -635,7 +635,7 @@ namespace IJLYNIVFHP.CodeGen
             {
                 case "SQL Server":
                     rad0.Enabled = true;
-                    txtyl.Text = @"示例连接字符串: server=.\sqlexpress;uid=sa;pwd=123456;database=IJLYNIVFHPtest;pooling=true;min pool size=5;max pool size=100;";
+                    txtyl.Text = @"示例连接字符串: server=I5225202210;uid=sa;pwd=123456;database=Test;pooling=true;min pool size=5;max pool size=100;";
                     break;
                 case "MySQL":
                     rad0.Enabled = false;
