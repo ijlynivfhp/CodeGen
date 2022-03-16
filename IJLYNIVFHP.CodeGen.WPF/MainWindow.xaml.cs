@@ -103,7 +103,7 @@ namespace IJLYNIVFHP.CodeGen.WPF
                 {
                     case "SQL Server":
 
-                        txtyulan.Text = @"示例连接字符串: server=I5225202210;uid=sa;pwd=123456;database=Test;pooling=true;min pool size=5;max pool size=100;";
+                        txtyulan.Text = @"示例连接字符串: server=192.168.0.135;uid=sa;pwd=Famous901;database=LaborSys;pooling=true;min pool size=5;max pool size=100;";
                         break;
                     case "MySQL":
 
