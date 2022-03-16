@@ -1,0 +1,178 @@
+﻿
+@{
+    Layout = null;
+}
+
+ @*<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <link href="/content/admin/css/style.css" rel="stylesheet" type="text/css" />
+
+ 
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+$(function(){
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active")
+		$(this).addClass("active");
+	});
+
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})
+    </script>
+
+
+</head>
+
+<body style="background:#f0f9fd;">
+    <div class="lefttop"><span></span>管理栏目</div>
+
+    <dl class="leftmenu">
+        <dd>
+            <div class="title">
+                <span><img src="/content/admin/images/leftico01.png" /></span>商品管理
+            </div>
+            <ul class="menuson">
+                <li><cite></cite><a href="/adnn1n/Product/Index" target="rightFrame">所有商品</a><i></i></li>
+            </ul>
+        </dd>
+
+        <dd>
+            <div class="title">
+                <span><img src="/content/admin/images/leftico01.png" /></span>订单管理
+            </div>
+            <ul class="menuson">
+                <li><cite></cite><a href="/adnn1n/Order/Index" target="rightFrame">所有订单</a><i></i></li> 
+            </ul>
+        </dd>
+
+
+        <dd>
+            <div class="title">
+                <span><img src="/content/admin/images/leftico02.png" /></span>会员管理
+            </div>
+            <ul class="menuson">
+                <li><cite></cite><a href="/Adnn1n/Member/Index" target="rightFrame">所有会员</a><i></i></li> 
+            </ul>
+        </dd>
+
+
+        <dd>
+            <div class="title"><span><img src="/content/admin/images/leftico03.png" /></span>平台管理</div>
+            <ul class="menuson">
+                <li><cite></cite><a href="###" target="rightFrame">发卡开关</a><i></i></li>
+                <li><cite></cite><a href="/Adnn1n/ShuXing/WebInfo" target="rightFrame">备案号显示</a><i></i></li>
+                <li><cite></cite><a href="/Adnn1n/QQOnline/Index" target="rightFrame">客服QQ</a><i></i></li>
+                <li><cite></cite><a href="/Adnn1n/EmailSet/Index" target="rightFrame">邮件设置</a><i></i></li>
+                <li><cite></cite><a href="/Adnn1n/ShuXing/PaySet" target="rightFrame">支付接口设置</a><i></i></li>
+                <li><cite></cite><a href="/Adnn1n/ShuXing/MaxJe" target="rightFrame">接口限额</a><i></i></li> 
+            </ul>
+        </dd>
+        <dd>
+            <div class="title"><span><img src="/content/admin/images/leftico04.png" /></span>财务管理</div>
+            <ul class="menuson">
+                <li><cite></cite><a href="###" target="rightFrame">接口统计</a><i></i></li> 
+            </ul>
+        </dd>
+        <dd>
+            <div class="title"><span><img src="/content/admin/images/leftico01.png" /></span>网站公告</div>
+            <ul class="menuson">
+                <li><cite></cite><a href="/Adnn1n/Notice/Index" target="rightFrame">网站公告</a><i></i></li>
+            </ul>
+        </dd>
+ 
+    </dl>
+
+</body>
+</html>*@ 
+
+
+ 
+     
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <title>会员管理-后台管理</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" /> 
+    <link href="~/Content/layui2/css/layui.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layui-layout layui-layout-admin">
+ 
+
+        <div class="layui-side layui-bg-black" style="top:0;">
+            <div class="layui-side-scroll highlight">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="left_url">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">商品管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/adnn1n/Product/Index" target="rightFrame">所有商品</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">订单管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/adnn1n/Order/Index" target="rightFrame">所有订单</a></dd> 
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">会员管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/Adnn1n/Member/Index" target="rightFrame">所有会员</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">平台管理</a>
+                        <dl class="layui-nav-child">
+                            <dd> <a href="/Adnn1n/ShuXing/WebInfo" target="rightFrame">备案号显示</a></dd>
+                            <dd><a href="/Adnn1n/QQOnline/Index" target="rightFrame">客服QQ</a></dd>
+                            <dd><a href="/Adnn1n/EmailSet/Index" target="rightFrame">邮件设置</a></dd>
+                            <dd><a href="/Adnn1n/ShuXing/PaySet" target="rightFrame">支付接口设置</a></dd>
+                            <dd><a href="/Adnn1n/ShuXing/MaxJe" target="rightFrame">接口限额</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">财务管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="###" target="rightFrame">接口统计</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">网站公告</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/Adnn1n/Notice/Index" target="rightFrame">网站公告</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+ 
+
+    </div>
+    <script src="~/Content/layui2/layui.js"></script> 
+    <script type="text/javascript">
+        layui.use('element', function () { 
+        });
+    </script>
+ 
+
+</body>
+</html>

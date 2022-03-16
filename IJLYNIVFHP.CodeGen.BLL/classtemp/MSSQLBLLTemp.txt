@@ -1,0 +1,138 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+namespace @namespace@.BLL
+{
+    /// <summary>[@tabname@]表BLL类
+    /// 作者:IJLYNIVFHP(QQ:380726211)
+    /// 创建时间:@createdate@
+    /// </summary>
+    public partial class @classname@BLL
+    {
+        public @classname@BLL()
+        { }
+        /// <summary>增加一条数据
+        /// 
+        /// </summary>
+        public int Add(@namespace@.Model.@classname@ model)
+        {
+            return new @namespace@.DAL.@classname@DAL().Add(model);
+        }
+
+        /// <summary>更新一条数据
+        /// 
+        /// </summary>
+        public bool Update(@namespace@.Model.@classname@ model)
+        {
+            return new @namespace@.DAL.@classname@DAL().Update(model);
+        }
+
+        /// <summary>按条件更新数据
+        /// 
+        /// </summary>
+        public bool UpdateByCond(string str_set, string cond)
+        {
+            return new @namespace@.DAL.@classname@DAL().UpdateByCond(str_set,cond);
+        }
+
+        /// <summary>删除一条数据
+        /// 
+        /// </summary>
+        public bool Delete(int @pkey@)
+        {
+            return new @namespace@.DAL.@classname@DAL().Delete(@pkey@);
+        }
+
+        /// <summary>根据条件删除数据
+        /// 
+        /// </summary>
+        public bool DeleteByCond(string cond)
+        {
+            return new @namespace@.DAL.@classname@DAL().DeleteByCond(cond);
+        }
+		
+        /// <summary>取一个字段的值
+        /// 
+        /// </summary>
+        /// <param name="filed">字段，如sum(je)</param>
+        /// <param name="cond">条件，如userid=2</param>
+        /// <returns></returns>
+        public string GetOneFiled(string filed, string cond)
+        {
+            return new @namespace@.DAL.@classname@DAL().GetOneFiled(filed,cond);
+        }
+
+        /// <summary>得到一个对象实体
+        /// 
+        /// </summary>
+        public @namespace@.Model.@classname@ GetModel(int @pkey@)
+        {
+            return new @namespace@.DAL.@classname@DAL().GetModel(@pkey@);
+        }
+
+        /// <summary>根据条件得到一个对象实体
+        /// 
+        /// </summary>
+        public @namespace@.Model.@classname@ GetModelByCond(string cond)
+        {
+            return new @namespace@.DAL.@classname@DAL().GetModelByCond(cond);
+        }
+
+        /// <summary>获得数据列表
+        /// 
+        /// </summary>
+        public DataSet GetList(string strWhere)
+        {
+            return new @namespace@.DAL.@classname@DAL().GetList(strWhere);
+        }
+
+        /// <summary>分页获取数据列表
+        /// 
+        /// </summary>
+        public DataSet GetList(string fileds, string order, string ordertype, int PageSize, int PageIndex, string strWhere)
+        {
+            return new @namespace@.DAL.@classname@DAL().GetList(fileds,order,ordertype,PageSize,PageIndex,strWhere);
+        }
+
+        /// <summary>获得数据列表（比DataSet效率高，推荐使用）
+        /// 
+        /// </summary>
+        public List<@namespace@.Model.@classname@> GetListArray(string strWhere)
+        {
+            return new @namespace@.DAL.@classname@DAL().GetListArray(strWhere);
+        }
+
+        /// <summary>分页获取数据列表
+        /// 
+        /// </summary>
+        public List<@namespace@.Model.@classname@> GetListArray(string fileds, string order, string ordertype, int PageSize, int PageIndex, string strWhere)
+        {
+			return new @namespace@.DAL.@classname@DAL().GetListArray(fileds,order,ordertype,PageSize,PageIndex,strWhere);
+        }
+
+      
+
+        /// <summary>计算记录数
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public int CalcCount(string cond)
+        {
+            return new @namespace@.DAL.@classname@DAL().CalcCount(cond);
+        }
+
+         /// <summary>取distinct的datatable
+        /// 
+        /// </summary>
+        /// <param name="fileds">字段</param>
+        /// <param name="cond">条件</param>
+        /// <returns></returns>
+        public DataTable GetDistinctTable(string fileds, string cond) {
+            return new @namespace@.DAL.@classname@DAL().GetDistinctTable(fileds,cond);
+        }
+    }
+}
+

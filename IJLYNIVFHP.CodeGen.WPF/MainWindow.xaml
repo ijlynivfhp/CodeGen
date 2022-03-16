@@ -1,0 +1,116 @@
+﻿<Window x:Class="IJLYNIVFHP.CodeGen.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IJLYNIVFHP.CodeGen.WPF"
+        mc:Ignorable="d"
+        Title="IJLYNIVFHP代码生成器WPF版" Height="900" Width="1200" Closing="Window_Closing"  >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="0">
+        <StackPanel  Orientation="Vertical">
+            <GroupBox Header="数据库设置" Padding="5" >
+                <DockPanel>
+                    <ComboBox Name="ddldb" DockPanel.Dock="Left" SelectionChanged="ddldb_SelectionChanged"   >
+                        <ComboBoxItem IsSelected="True" Content="SQL Server"></ComboBoxItem>
+                        <ComboBoxItem Content="MySQL"></ComboBoxItem>
+                        <ComboBoxItem Content="Access"></ComboBoxItem>
+                        <ComboBoxItem Content="SQLite"></ComboBoxItem>
+                    </ComboBox>
+                    <Button Name="btnconn"  Content="连 接" DockPanel.Dock="Right" Padding="5" Click="btnconn_Click"/>
+                    <TextBox Name="txtconnstr" HorizontalAlignment="Stretch" Padding="5"/>
+                
+                </DockPanel>
+            </GroupBox>
+            <GroupBox Header="选择操作表" Padding="5">
+                <DockPanel>
+                    <ListBox Name="lsbright" DockPanel.Dock="Right" Height="300" Width="200" SelectionMode="Extended"></ListBox>
+                    <ListBox Name="lsbleft" DockPanel.Dock="Left" Height="300" Width="200"  SelectionMode="Extended"></ListBox>
+                    <StackPanel Orientation="Vertical">
+                        <Button Name="btnleft2right" Content="&gt;" Margin="20,30,20,30" MaxWidth="100" FontSize="18" MinWidth="60" Click="btnleft2right_Click"></Button>
+                        <Button Name="btnleft2right_all" Content="&gt;&gt;" Margin="20,20,20,30" MaxWidth="100" FontSize="18" MinWidth="60" Click="btnleft2right_all_Click"></Button>
+                        <Button Name="btnright2left" Content="&lt;" Margin="20,20,20,30" MaxWidth="100" FontSize="18" MinWidth="60" Click="btnright2left_Click"></Button>
+                        <Button Name="btnright2left_all" Content="&lt;&lt;" Margin="20,20,20,30" MaxWidth="100" FontSize="18" MinWidth="60" Click="btnright2left_all_Click"></Button>
+                    </StackPanel>
+                </DockPanel>
+            </GroupBox>
+            <GroupBox Header="代码生成方式" Padding="15">
+                <WrapPanel Orientation="Horizontal">
+                    <RadioButton Name="radmicro" Content="基于微软企业库" Margin="0,0,20,0" IsChecked="False"></RadioButton>
+                    <RadioButton Name="radIJLYNIVFHP" Content="基于IJLYNIVFHP数据库操作类" Margin="0,0,20,0" IsChecked="False"></RadioButton>
+                    <RadioButton Name="raddapper" Content="基于Dapper" IsChecked="True"></RadioButton> 
+
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="其他设置" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5">命名空间：</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5">表前缀：</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5">代码生成目录：</TextBlock>
+                    <TextBox Name="txtmingming" Text="IJLYNIVFHP.Test" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="5" Padding="5"></TextBox>
+                    <TextBox Name="txtqianzui" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Margin="5" Padding="5"></TextBox>
+                    <TextBox Name="txtmulu" Text="C:\IJLYNIVFHPgen\" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="5" Padding="5"></TextBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="生成代码" Padding="5">
+                <StackPanel Orientation="Vertical">
+                 
+                    <WrapPanel>
+                            <Button Name="btngenwendang" Padding="5" Margin="5" Click="btngenwendang_Click">生成数据库文档</Button>
+                            <Button Name="btngeninsertsql" Padding="5" Margin="5" Click="btngeninsertsql_Click">生成数据库insert语句（每个表取10条记录）</Button>
+                        <Button Name="btndalyulan" Padding="5" Margin="5" Click="btndalyulan_Click">DAL预览</Button>
+                        <Button Name="btnmodelyulan" Padding="5" Margin="5" Click="btnmodelyulan_Click">Model预览</Button>
+                        <Button Name="btngencode" Padding="5" Margin="5" Click="btngencode_Click">生成代码</Button>
+                    </WrapPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="生成ASPX页面代码" Padding="5">
+                <WrapPanel Orientation="Horizontal">
+                    <Button Name="btnlist1" Content="生成list前台代码" Padding="5" Margin="5" Click="btnlist1_Click"></Button>
+                    <Button Name="btnlist2" Content="生成list后台代码" Padding="5" Margin="5" Click="btnlist2_Click"></Button>
+                    <Button Name="btndelashx" Content="生成del.ashx代码" Padding="5" Margin="5" Click="btndelashx_Click"></Button>
+                    <Button Name="btnadd1" Content="生成add前台代码" Padding="5" Margin="5" Click="btnadd1_Click"></Button>
+                    <Button Name="btnadd2" Content="生成add后台代码" Padding="5" Margin="5" Click="btnadd2_Click"></Button>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="生成MVC页面代码" Padding="5">
+                <WrapPanel Orientation="Horizontal">
+                    <Button Name="btnlist_mvc" Content="生成mvc_list前台代码" Padding="5" Margin="5" Click="btnlist_mvc_Click"></Button>
+                    <Button Name="btnadd_mvc" Content="生成mvc_add前台代码" Padding="5" Margin="5" Click="btnadd_mvc_Click"></Button>
+                        <Button Name="btncode_mvc" Content="生成mvc_后台代码" Padding="5" Margin="5" Click="btncode_mvc_Click"></Button>
+                        <Button Name="btn_gen_admin" Content="生成mvc后台页面框架代码" Padding="5" Margin="5" Click="btn_gen_admin_Click"></Button>
+                </WrapPanel>
+            </GroupBox>
+                <GroupBox Header="layui版本" Padding="5">
+                    <WrapPanel Orientation="Horizontal">
+                        <RadioButton Name="layui1" Margin="5" Content="1.0.9" IsChecked="True"/>
+                        <RadioButton Name="layui2" Margin="5" Content="2.x.x"/>
+
+                    </WrapPanel>
+                </GroupBox>
+                <GroupBox Header="mvc_add页面布局" Padding="5">
+                    <WrapPanel Orientation="Horizontal">
+                        <RadioButton Name="div" Content="div" Margin="5" IsChecked="true"/>
+                        <RadioButton Name="table" Content="table" Margin="5"/>
+                    </WrapPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <TextBox Grid.Column="2" TextWrapping="Wrap" Name="txtyulan" FontSize="16" Text="示例连接字符串: server=.;uid=sa;pwd=123456;database=olabor;pooling=true;min pool size=5;max pool size=100;"></TextBox> 
+    </Grid>
+</Window>

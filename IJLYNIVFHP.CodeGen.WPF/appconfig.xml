@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <dbtype>SQL Server</dbtype>
+  <connstr>server=.;uid=sa;pwd=123456;database=IJLYNIVFHPtest;</connstr>
+  <genway>0</genway>
+  <namespace>IJLYNIVFHP.Test</namespace>
+  <front>test_</front>
+  <output>d:\IJLYNIVFHPcode\</output>
+</Config>

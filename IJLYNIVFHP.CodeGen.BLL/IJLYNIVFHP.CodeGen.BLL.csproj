@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E80E4568-4290-47F1-B78D-7C620B73FE87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IJLYNIVFHP.CodeGen.BLL</RootNamespace>
+    <AssemblyName>IJLYNIVFHP.CodeGen.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\第三方类库\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\第三方类库\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\第三方类库\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBDocGen.cs" />
+    <Compile Include="GenBLL_MSSQL_niunan.cs" />
+    <Compile Include="GenCode_MVC.cs" />
+    <Compile Include="GenDAL_Access_niunan.cs" />
+    <Compile Include="GenDAL_MSSQL.cs" />
+    <Compile Include="GenDAL_MSSQL_niunan.cs" />
+    <Compile Include="GenDAL_MySQL_niunan.cs" />
+    <Compile Include="GenDAL_SQLite_niunan.cs" />
+    <Compile Include="GenList_MSSQL.cs" />
+    <Compile Include="GenModel_Access.cs" />
+    <Compile Include="GenModel_MSSQL.cs" />
+    <Compile Include="GenModel_MySQL.cs" />
+    <Compile Include="GenModel_SQLite.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="classtemp\AccessDALTemp.txt" />
+    <Content Include="classtemp\AccessHelperTemp.txt" />
+    <Content Include="classtemp\add_mvc_layui2.txt" />
+    <Content Include="classtemp\backcode_mvc.txt" />
+    <Content Include="classtemp\DBTemp.html" />
+    <Content Include="classtemp\list_mvc.txt" />
+    <Content Include="classtemp\list_mvc_layui2.txt" />
+    <Content Include="classtemp\MSSQLBLLTemp.txt" />
+    <Content Include="classtemp\MSSQLDALTemp.txt" />
+    <Content Include="classtemp\MSSQLDALTemp_dapper.txt" />
+    <Content Include="classtemp\MSSQLHelperTemp.txt" />
+    <Content Include="classtemp\MSSQLHelperTemp_dapper.txt" />
+    <Content Include="classtemp\MySQLDALTemp.txt" />
+    <Content Include="classtemp\MySQLDALTemp_dapper.txt" />
+    <Content Include="classtemp\MySQLHelperTemp.txt" />
+    <Content Include="classtemp\SQLiteDALTemp.txt" />
+    <Content Include="classtemp\SQLiteHelperTemp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="classtemp\add_mvc.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IJLYNIVFHP.CodeGen.Model\IJLYNIVFHP.CodeGen.Model.csproj">
+      <Project>{1219f492-b433-40e5-9dbb-89cfc445b381}</Project>
+      <Name>IJLYNIVFHP.CodeGen.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

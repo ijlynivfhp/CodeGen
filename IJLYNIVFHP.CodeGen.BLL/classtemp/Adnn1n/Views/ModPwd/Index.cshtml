@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "修改密码";
+}
+
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li class="layui-this">@ViewBag.Title</li>
+    </ul>
+</div>
+<form class="layui-form" action="" method="post">
+
+    <div class='layui-form'>
+
+        <div class='layui-form-item'>
+            <label class='layui-form-label'>原密码</label>
+            <div class='layui-input-block'> 
+                <input type="password" class="layui-input" name="spwd" id="spwd" required="required"/>
+            </div>
+            <div class='layui-form-mid layui-word-aux'><!--辅助文字--></div>
+        </div>
+        <div class='layui-form-item'>
+            <label class='layui-form-label'>新密码</label>
+            <div class='layui-input-block'>
+                <input type="password" class="layui-input" name="npwd" id="npwd" required="required" />
+            </div>
+            <div class='layui-form-mid layui-word-aux'><!--辅助文字--></div>
+        </div>
+        <div class='layui-form-item'>
+            <label class='layui-form-label'>重复新密码</label>
+            <div class='layui-input-block'>
+                <input type="password" class="layui-input" name="npwd2" id="npwd2" required="required" />
+            </div>
+            <div class='layui-form-mid layui-word-aux'><!--辅助文字--></div>
+        </div>
+        <div class='layui-form-item'>
+            <label class='layui-form-label'> </label>
+            <div class='layui-input-block'>
+                <input type="submit" class="layui-btn" value="修改密码" onclick="return checkform()"/>
+                @Html.AntiForgeryToken()
+            </div>
+            <div class='layui-form-mid layui-word-aux'><!--辅助文字--></div>
+        </div>
+        </div>
+        </form>
+
+<script>
+    function checkform() {
+        var npwd = $('#npwd').val();
+        var npwd2 = $('#npwd2').val();
+        if (npwd != npwd2) {
+            alert('二次输入的密码不相同');
+            return false;
+        }
+        return true;
+    }
+</script>
